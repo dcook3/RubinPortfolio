@@ -27,3 +27,4 @@ phases:
 #      - printf '[{"name”:"recipi-container-repository","imageUri":"%s"}]' $REPOSITORY_URI:$IMAGE_TAG > imagedefinitions.json
 #artifacts:
 #  files: imagedefinitions.json
+      #
