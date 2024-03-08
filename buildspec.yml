@@ -3,7 +3,6 @@ phases:
   pre_build:
     commands:
         - echo Logging in to Amazon ECR...
-        - apt-get install -yy less
         - apt-get install curl
         - apt-get install unzip
         - curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
