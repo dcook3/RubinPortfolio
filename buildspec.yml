@@ -2,11 +2,18 @@ version: 0.2
 phases:
     install:
         commands:
-          - apt-get update
-          - apt-get install -y docker
-          - service docker start
-          - nohup /usr/local/bin/dockerd --host=unix:///var/run/docker.sock --host=tcp://127.0.0.1:2375 --storage-driver=overlay2 &
-          - timeout 15 sh -c "until docker info; do echo .; sleep 1; done"
+            - whoami
+            - apt-get update
+            - apt-get install ca-certificates curl
+            - install -m 0755 -d /etc/apt/keyrings
+            - curl -fsSL https://download.docker.com/linux/debian/gpg -o /etc/apt/keyrings/docker.asc
+            - chmod a+r /etc/apt/keyrings/docker.asc
+            - echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/debian $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | tee /etc/apt/sources.list.d/docker.list > /dev/null
+            - apt-get update
+            - apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+            - service docker start
+            - nohup /usr/local/bin/dockerd --host=unix:///var/run/docker.sock --host=tcp://127.0.0.1:2375 --storage-driver=overlay2 &
+            - timeout 15 sh -c "until docker info; do echo .; sleep 1; done"
     pre_build:
         commands:
             - echo Logging in to Amazon ECR...
