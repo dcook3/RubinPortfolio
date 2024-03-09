@@ -12,8 +12,8 @@ phases:
             - apt-get update
             - apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
             - service docker start
-            - nohup /usr/local/bin/dockerd --host=unix:///var/run/docker.sock --host=tcp://127.0.0.1:2375 --storage-driver=overlay2 &
-            - timeout 15 sh -c "until docker info; do echo .; sleep 1; done"
+            - sed -i 's/ulimit -Hn 524288/ulimit -n 524288/g' /etc/init.d/docker
+            - cat /etc/init.d/docker
     pre_build:
         commands:
             - echo Logging in to Amazon ECR...
