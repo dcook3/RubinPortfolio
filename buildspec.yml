@@ -12,7 +12,6 @@ phases:
             - apt-get update
             - apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
             - sed -i 's/ulimit -Hn 524288/ulimit -n 524288/g' /etc/init.d/docker
-            - cat /etc/init.d/docker
             - service docker start
             
     pre_build:
@@ -38,4 +37,6 @@ phases:
             - docker push $REPOSITORY_URI:latest
             - docker push $REPOSITORY_URI:$IMAGE_TAG
             - echo Writing image definitions file...
+            - echo $CLUSTER_NAME
+            - echo $SERVICE_NAME
             - aws ecs update-service --cluster $CLUSTER_NAME --service $SERVICE_NAME --force-new-deployment --region us-east-1
