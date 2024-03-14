@@ -3,7 +3,10 @@
     "name": "senior project goes here",
     "shortDescription": "senior project short desc placeholder",
     "description": "senior project full description goes here",
-    "contributors": [ "Sam Rubin", "other person", "other person" ],
+    "duration": "a duration",
+    "role": "tbd",
+    "projectUrl": "https://example.com/projectUrlPlaceholder",
+    "responsibilities": [ "Responsibility1", "Responsibility2" ],
     "imageNames": [ "placeholder1.jpg", "placeholder2.jpg" ],
     "imageUrls": [ "https://www.example.com/media/placeholder1.jpg", "https://www.example.com/media/placeholder2.jpg" ]
   },

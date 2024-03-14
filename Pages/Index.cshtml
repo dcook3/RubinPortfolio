@@ -1,13 +1,12 @@
 ﻿@page
 @model IndexModel
 @using Models;
-@using System.Text.Json;
 @{
     ViewData["Title"] = "Sam Rubin Portfolio Home";
 
     // Note: Following code seems to run clientside
     string jsonString = Project.GetJsonAsString("data.json");
-    //Project[] projects = System.Text.Json.JsonSerializer.Deserialize<Project>(jsonString);
+    Project[] projects = Newtonsoft.Json.JsonConvert.DeserializeObject<Project[]>(jsonString);
 }
 
 <div class="text-center">
@@ -28,33 +27,31 @@
     <!--Projects carousel-->
     <div id="projectsCarasousel" class="carousel carousel-dark slide">
         <div class="carousel-indicators">
-            <button type="button" data-bs-target="#projectsCarasousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#projectsCarasousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-            <button type="button" data-bs-target="#projectsCarasousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            @for (int i=0;i<projects.Length;i++)
+            {
+                @if(i == 0)
+                {
+                    <button type="button" data-bs-target="#projectsCarasousel" data-bs-slide-to="@(i+1)" class="active" aria-current="true" aria-label="Slide @(i+1)"></button>
+                }
+                else
+                {
+                    <button type="button" data-bs-target="#projectsCarasousel" data-bs-slide-to="@(i+1)" aria-label="Slide @(i+1)"></button>
+                }
+                
+            }
         </div>
-        <div class="carousel-inner">
-            <div class="carousel-item active" data-bs-interval="10000">
-                <img src="..." class="d-block w-100" alt="...">
-                <div class="carousel-caption d-none d-md-block">
-                    <h5>Senior Project</h5>
-                    <p>Short description of project.</p>
+        @for (int i = 0; i < projects.Length; i++)
+        {
+            <div class="carousel-inner">
+                <div class="carousel-item active" data-bs-interval="10000">
+                    <img src="@(projects[i].ImageUrls[0])" class="d-block w-100">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>@(projects[i].Name)</h5>
+                        <p>@(projects[i].ShortDescription)</p>
+                    </div>
                 </div>
             </div>
-            <div class="carousel-item" data-bs-interval="10000">
-                <img src="..." class="d-block w-100" alt="...">
-                <div class="carousel-caption d-none d-md-block">
-                    <h5>Deliverance</h5>
-                    <p>Short description of project.</p>
-                </div>
-            </div>
-            <div class="carousel-item" data-bs-interval="10000">
-                <img src="..." class="d-block w-100" alt="...">
-                <div class="carousel-caption d-none d-md-block">
-                    <h5>Mazer</h5>
-                    <p>Short description of project.</p>
-                </div>
-            </div>
-        </div>
+        }
         <button class="carousel-control-prev" type="button" data-bs-target="#projectsCarasousel" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Previous</span>
