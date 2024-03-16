@@ -1,4 +1,5 @@
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.JSInterop;
 using Microsoft.VisualStudio.Web.BrowserLink;
 using RubinPortfolio.Models;
 
@@ -6,6 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 var mvcBuilder = builder.Services.AddRazorPages();
+builder.Services.AddServerSideBlazor();
 
 // Enable runtime compilation when in development environment
 if (builder.Environment.IsDevelopment())
@@ -34,6 +36,7 @@ app.UseRouting();
 
 app.UseAuthorization();
 
-app.MapRazorPages();
+app.MapBlazorHub();
+app.MapFallbackToPage("/_Host");
 
 app.Run();

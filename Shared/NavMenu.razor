@@ -1,0 +1,35 @@
+﻿@inject IJSRuntime JS
+
+<nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow" style="--bs-bg-opacity: .5;">
+    <div class="container">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+            <ul class="navbar-nav flex-grow-1">
+                <li class="nav-item">
+                    <a class="nav-link text-white" asp-area="" asp-page="/Index">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" asp-area="" asp-page="/Experience">Experience</a>
+                </li>
+                <li class="nav-item">
+                    <button href="" class="nav-link text-white" @onclick="DownloadFileFromURL">Resume</button>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="mailto:srubin310@gmail.com?subject=I'd%20like%20to%20get%20in%20contact%20with%20you%20(Portfolio%20website)">Contact Me</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+@code {
+    private async Task DownloadFileFromURL()
+    {
+        var fileName = "Resume.docx";
+        var fileURL = "/files/Resume.docx";
+        await JS.InvokeVoidAsync("triggerFileDownload", fileName, fileURL);
+    }
+}

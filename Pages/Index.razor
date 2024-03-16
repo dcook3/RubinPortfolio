@@ -1,13 +1,7 @@
-﻿@page
-@model IndexModel
+﻿@page "/"
 @using Models;
-@{
-    ViewData["Title"] = "Sam Rubin Portfolio Home";
 
-    // Note: Following code seems to run clientside
-    string jsonString = Project.GetJsonAsString("data.json");
-    Project[] projects = Newtonsoft.Json.JsonConvert.DeserializeObject<Project[]>(jsonString);
-}
+<PageTitle>Sam Rubin Portfolio Home</PageTitle>
 
 <div class="text-center">
     <section class="d-flex">
@@ -22,36 +16,33 @@
         <p>Well over the course of my schooling and now 7 or so years programming I’ve learned how to prototype, plan, build, and shape games from the ground up. I’ve worked by myself, in groups, some even as big as 20, I am familiar with version control and large group workflow. I've learned industry standard programming practices, how to recognize and conform code into design patterns, model and maintain and write readable and workable code. My experience in this field varies from writing and designing databases, to programming multiplayer games from scratch. I’ve used the newest and fanciest toys to create games with amazing VFX and awesome Mo Capped animations to complete from scratch game engines in XNA, and javascript. Not that I would be the most qualified person but I have gotten quite good at doing body and mocap animations over the course of my senior project. I generally learn new technologies fast and I keep trying to expand my skill sets for new projects, as of right now I'm trying (miserably) to teach myself how to 3D model and learn blender!</p>
         <p>Outside of programming and my work life, I enjoy working on my car and playing Airsoft. I enjoy cooking and tinkering with various electronics and other paraphernalia. And most importantly I love playing video games!.</p>
     </section>
-    
-    <span class="text-danger">Accordion display of project objects goes here.</span>
-    <!--Projects carousel-->
+
     <div id="projectsCarasousel" class="carousel carousel-dark slide">
-        <div class="carousel-indicators">
-            @for (int i=0;i<projects.Length;i++)
+        <div class="carousel-inner">
+            @for (int i = 0; i < projects.Length; i++)
             {
-                @if(i == 0)
+                @if (i == 0)
                 {
-                    <button type="button" data-bs-target="#projectsCarasousel" data-bs-slide-to="@(i+1)" class="active" aria-current="true" aria-label="Slide @(i+1)"></button>
+                    <div class="carousel-item active" data-bs-interval="10000">
+                        <img src="@(projects[i].ImageUrls[0])" class="d-block w-100">
+                        <div class="carousel-caption d-none d-md-block p-2 border border-0 border-dark border-opacity-50 rounded bg-dark bg-opacity-50">
+                            <h5 class="text-white">@(projects[i].Name)</h5>
+                            <p class="text-white">@(projects[i].ShortDescription)</p>
+                        </div>
+                    </div>
                 }
                 else
                 {
-                    <button type="button" data-bs-target="#projectsCarasousel" data-bs-slide-to="@(i+1)" aria-label="Slide @(i+1)"></button>
+                    <div class="carousel-item" data-bs-interval="10000">
+                        <img src="@(projects[i].ImageUrls[0])" class="d-block w-100">
+                        <div class="carousel-caption d-none d-md-block p-2 border border-0 border-dark border-opacity-50 rounded bg-dark bg-opacity-50">
+                            <h5 class="text-white">@(projects[i].Name)</h5>
+                            <p class="text-white">@(projects[i].ShortDescription)</p>
+                        </div>
+                    </div>
                 }
-                
             }
         </div>
-        @for (int i = 0; i < projects.Length; i++)
-        {
-            <div class="carousel-inner">
-                <div class="carousel-item active" data-bs-interval="10000">
-                    <img src="@(projects[i].ImageUrls[0])" class="d-block w-100">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>@(projects[i].Name)</h5>
-                        <p>@(projects[i].ShortDescription)</p>
-                    </div>
-                </div>
-            </div>
-        }
         <button class="carousel-control-prev" type="button" data-bs-target="#projectsCarasousel" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Previous</span>
@@ -62,3 +53,9 @@
         </button>
     </div>
 </div>
+
+@code{
+    static string jsonString = Project.GetJsonAsString("data.json");
+
+    static Project[] projects = Newtonsoft.Json.JsonConvert.DeserializeObject<Project[]>(jsonString);
+}
