@@ -1,0 +1,50 @@
+﻿<div id="@(SlideshowName)" class="carousel carousel-dark slide">
+    <div class="carousel-inner">
+        @for (int i = 0; i < ImgUrls.Length; i++)
+        {
+            @if (i == 0)
+            {
+                <div class="carousel-item active" data-bs-interval="10000">
+                    <img src="@(ImgUrls[0])" class="d-block w-100">
+                    @if(ChildContent != null)
+                    {
+                        <div class="carousel-caption d-none d-md-block p-2 border border-0 border-dark border-opacity-50 rounded bg-dark bg-opacity-50">
+                            @ChildContent
+                        </div>
+                    }
+                </div>
+            }
+            else
+            {
+                <div class="carousel-item" data-bs-interval="10000">
+                    <img src="@(ImgUrls[i])" class="d-block w-100">
+                    @if (ChildContent != null)
+                    {
+                        <div class="carousel-caption d-none d-md-block p-2 border border-0 border-dark border-opacity-50 rounded bg-dark bg-opacity-50">
+                            @ChildContent
+                        </div>
+                    }
+                </div>
+            }
+        }
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#@(SlideshowName)" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#@(SlideshowName)" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+
+@code {
+    [Parameter]
+    public required string SlideshowName { get; set; }
+
+    [Parameter]
+    public RenderFragment? ChildContent { get; set; }
+
+    [Parameter]
+    public string[] ImgUrls { get; set; } = new string[0];
+}

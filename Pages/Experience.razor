@@ -1,3 +1,20 @@
 ﻿@page "/experience"
+@using Models
 
 <PageTitle>Experience - Sam Rubin Portfolio</PageTitle>
+<div class="d-flex justify-content-center border-bottom border-white mb-4">
+    <h2 class="text-center">Projects</h2>
+</div>
+
+@for (int i = 0; i < projects.Length; i++)
+{
+    <div class="mb-2 p-2 border rounded border-white">
+        <ProjectDisplay Project="@projects[i]" Index="@i.ToString()"></ProjectDisplay>
+    </div>
+}
+
+@code {
+    static string jsonString = Project.GetJsonAsString("data.json");
+
+    static Project[] projects = Newtonsoft.Json.JsonConvert.DeserializeObject<Project[]>(jsonString);
+}
