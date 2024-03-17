@@ -11,18 +11,20 @@
         public string[] Responsibilities { get; set; } = new string[0];
         public string[] ImageNames { get; set; } = new string[0];
         public string[] ImageUrls { get; set; } = new string[0];
+        public string Platform { get; set; }
 
-        public Project(string name, string shortDescription, string description, string duration, string role, string projectUrl, string[] responsibilities, string[] imageNames, string[] imageUrls)
+        public Project(string name, string shortDescription, string description, string duration, string role, string projectUrl, string[] responsibilities, string[] imageNames, string[] imageUrls, string platform)
         {
-            this.Name = name;
-            this.ShortDescription = shortDescription;
-            this.Description = description;
-            this.Duration = duration;
-            this.Role = role;
-            this.ProjectUrl = projectUrl;
-            this.Responsibilities = responsibilities;
-            this.ImageNames = imageNames;
-            this.ImageUrls = imageUrls;
+            Name = name;
+            ShortDescription = shortDescription;
+            Description = description;
+            Duration = duration;
+            Role = role;
+            ProjectUrl = projectUrl;
+            Responsibilities = responsibilities;
+            ImageNames = imageNames;
+            ImageUrls = imageUrls;
+            Platform = platform;
         }
 
         public static string GetJsonAsString(string filePath)
@@ -31,7 +33,7 @@
         }
         public override string ToString()
         {
-            return $"Name:{this.Name}, \nShort Desc: {this.ShortDescription},\nDesc: {this.Description},\nDuration: {this.Duration}\nRole: {this.Role},\nProject Url: {this.ProjectUrl},\nResponsibilities@0: {this.Responsibilities[0]},\nImage Names@0: {this.ImageNames[0]},\nImage Urls@0: {this.ImageNames[0]}";
+            return $"Name:{Name}, \nShort Desc: {ShortDescription},\nDesc: {Description},\nDuration: {Duration}\nRole: {Role},\nProject Url: {ProjectUrl},\nResponsibilities@0: {Responsibilities[0]},\nImage Names@0: {ImageNames[0]},\nImage Urls@0: {ImageNames[0]}";
         }
     }
 }

@@ -1,0 +1,38 @@
+﻿@inject NavigationManager nav
+@using Models
+<div class="text-white">
+    <h3 class="text-center">@(Project.Name)</h3>
+    <p>@(Project.Description)</p>
+    <button class="btn btn-primary text-white" @onclick="@(clicked => nav.NavigateTo(Project.ProjectUrl))">See project</button>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-3">Duration:</dt>
+        <dd class="col-sm-9">@(Project.Duration)</dd>
+
+        <dt class="col-sm-3">Role:</dt>
+        <dd class="col-sm-9">@(Project.Role)</dd>
+
+        <dt class="col-sm-3">Responsibilities:</dt>
+        <dd class="col-sm-9">
+            <ul>
+                @foreach(string responsibility in Project.Responsibilities)
+                {
+                    <li>@(responsibility)</li>
+                }
+            </ul>
+        </dd>
+
+        <dt class="col-sm-3">Platform:</dt>
+        <dd class="col-sm-9">@(Project.Platform)</dd>
+    </dl>
+    <h5>Project Images:</h5>
+    <Slideshow SlideshowName="@("projectDisplay" + (Index != null ? Index : ""))" ImgUrls="@(Project.ImageUrls)"></Slideshow>
+</div>
+
+@code {
+    [Parameter]
+    public string? Index { get; set; }
+
+    [Parameter]
+    public Project Project { get; set; }
+}
