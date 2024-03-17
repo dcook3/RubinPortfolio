@@ -1,0 +1,35 @@
+[
+  {
+    "name": "senior project goes here",
+    "shortDescription": "senior project short desc placeholder",
+    "description": "senior project full description goes here",
+    "duration": "a duration",
+    "role": "tbd",
+    "projectUrl": "https://example.com/projectUrlPlaceholder",
+    "responsibilities": [ "Responsibility1", "Responsibility2" ],
+    "imageNames": [ "placeholder1.jpg", "placeholder2.jpg" ],
+    "imageUrls": [ "https://www.example.com/media/placeholder1.jpg", "https://www.example.com/media/placeholder2.jpg" ]
+  },
+  {
+    "name": "DELIVERANCE",
+    "shortDescription": "A cool game called Deliverance",
+    "description": "Deliverance is a serious game made to bring recognition to countries dealing with refugees. The game was made to play like overcooked and is local coop up to 4 players. Players grab items from the belt and must first properly fold, dry and wash the items before they are sent to refugees in need.",
+    "duration":  "6 weeks",
+    "role": "Programming Lead",
+    "projectUrl":  "https://example.com/projectUrlPlaceholder",
+    "responsibilities": [ "Player and Camera Controller", "Order and Scoring System" ],
+    "imageNames": [ "Deliverance_gameplay1.png", "Deliverance_gameplay2.png", "Deliverance_menu.png", "Deliverance_gameover.png" ],
+    "imageUrls": [ "media/Deliverance_gameplay1.png", "media/Deliverance_gameplay2.png", "media/Deliverance_menu.png", "media/Deliverance_gameover.png" ]
+  },
+  {
+    "name": "MAZER",
+    "shortDescription": "senior project short desc placeholder",
+    "description": "Mazer is arguably the first game I released. Mazer is a game jam game for 2021s 72hr December game jam, the theme Duality. Mazer is a basic physics puzzle game that was made by me and 5 of my fellow cohorts. We had just started learning unity in a classroom when the game jam came up and we convinced ourselves we could do it, this was the result.",
+    "duration": "72 Hours",
+    "role": "Gameplay Programmer",
+    "projectUrl": "https://example.com/projectUrlPlaceholder",
+    "responsibilities": [ "Player elements", "Iteractive level elements" ],
+    "imageNames": [ "Mazer_gameplay.png", "Mazer_mainMenu.png", "Mazer_credits.png" ],
+    "imageUrls": [ "media/Mazer_gameplay.png", "media/Mazer_mainMenu.png", "media/Mazer_credits.png" ]
+  }
+]
