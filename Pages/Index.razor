@@ -3,21 +3,23 @@
 
 <PageTitle>Sam Rubin Portfolio Home</PageTitle>
 
-<div class="text-center">
-    <section class="d-flex">
-        <img class="img-fluid" src="media/sam_profilepic.jpg" alt="Sam's Profile Picture" />
-        <div class="col-md-4">
-            <h3 class="fw-light">About Me</h3>
-            <p>Hi I’m Sam Rubin, I am a video game programmer from Massachusetts. I am a very social person at heart, I have had my communication skills drilled into me since I was a kid by my parents. A saying my dad always repeated was “You only get one chance to make a first impression”, I tend to take that to heart. I specialize in C# and the Unity game engine.  I have experience in C++, Java Script, C and some python and swift experience. I have a bachelors in Game Development & Simulation Programming from NEIT and I started specializing all the way back in highschool in Keefe techs programming shop. To say I fell in love is probably not correct, but I entered a very stable love hate relationship with programming. I am nothing if not persistent, nothing is more satisfying than finally finding a solution after 8 plus hours of debugging games In’s and Outs. </p>
-        </div>
+<div class="text-center col-md-12">
+    <section class="d-md-flex flex-column mb-4">
+        <div class="row">
+            <img class="img-fluid border rounded border-white px-0 col-md-4" src="media/sam_profilepic.jpg" alt="Sam's Profile Picture" />
+            <div class="col-md-8">
+                <h3 class="fw-light">About Me</h3>
+                <p>Hi, I’m Sam Rubin. I am a video game programmer from Massachusetts. I am a very social person at heart. I have had my communication skills drilled into me since I was a kid by my parents. A saying my dad always repeated was “You only get one chance to make a first impression” and I tend to take that to heart. I specialize in C# and the Unity game engine.  I have experience in C++, Java Script, C and some Python and Swift experience. I have a Bachelors degree in Game Development & Simulation Programming from NEIT and I started specializing all the way back in high school in Keefe Tech’s programming shop. To say I fell in love is probably not correct, but I entered a very stable love/hate relationship with programming. I am nothing if not persistent; nothing is more satisfying than finally finding a solution after 8 plus hours of debugging games In’s and Outs.</p>
+                <div class="d-block">
+                    <h3 class="fw-light">Why should you care?</h3>
+                    <p>Well, over the course of my schooling and now 7 or so years programming I’ve learned how to prototype, plan, build, and shape games from the ground up. I’ve worked by myself, in groups, some even as big as 20. I am familiar with version control and large group workflow. I've learned industry standard programming practices, how to recognize and conform code into design patterns, model and maintain and write readable and workable code. My experience in this field varies from writing and designing databases, to programming multiplayer games from scratch. I’ve used the newest and fanciest toys to create games with amazing VFX and awesome Mo Capped animations to complete from scratch game engines in XNA, and javascript. Not that I would be the most qualified person, but I have gotten quite good at doing body and Mocap animations over the course of my senior college project. I generally learn new technologies fast and I keep trying to expand my skill sets for new projects, ie., as of right now I'm trying (miserably) to teach myself how to 3D model and learn Blender!</p>
+                    <p>Outside of programming and my work life, I enjoy working on my car and playing Airsoft. I enjoy cooking and tinkering with various electronics and other paraphernalia. And most importantly, I love playing video games!</p>
+                </div>
+            </div>
+            </div>
     </section>
-    <section class="d-block">
-        <h3 class="fw-light">Why should you care?</h3>
-        <p>Well over the course of my schooling and now 7 or so years programming I’ve learned how to prototype, plan, build, and shape games from the ground up. I’ve worked by myself, in groups, some even as big as 20, I am familiar with version control and large group workflow. I've learned industry standard programming practices, how to recognize and conform code into design patterns, model and maintain and write readable and workable code. My experience in this field varies from writing and designing databases, to programming multiplayer games from scratch. I’ve used the newest and fanciest toys to create games with amazing VFX and awesome Mo Capped animations to complete from scratch game engines in XNA, and javascript. Not that I would be the most qualified person but I have gotten quite good at doing body and mocap animations over the course of my senior project. I generally learn new technologies fast and I keep trying to expand my skill sets for new projects, as of right now I'm trying (miserably) to teach myself how to 3D model and learn blender!</p>
-        <p>Outside of programming and my work life, I enjoy working on my car and playing Airsoft. I enjoy cooking and tinkering with various electronics and other paraphernalia. And most importantly I love playing video games!.</p>
-    </section>
-
-    <div id="projectsCarasousel" class="carousel carousel-dark slide">
+    <h3>Projects Overview</h3>
+    <section id="projectsCarasousel" class="carousel carousel-dark slide border rounded border-white">
         <div class="carousel-inner">
             @for (int i = 0; i < projects.Length; i++)
             {
@@ -43,15 +45,15 @@
                 }
             }
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#projectsCarasousel" data-bs-slide="prev">
+        <button class="carousel-control-prev text-white" type="button" data-bs-target="#projectsCarasousel" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Previous</span>
         </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#projectsCarasousel" data-bs-slide="next">
+        <button class="carousel-control-next text-white" type="button" data-bs-target="#projectsCarasousel" data-bs-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Next</span>
         </button>
-    </div>
+    </section>
 </div>
 
 @code{

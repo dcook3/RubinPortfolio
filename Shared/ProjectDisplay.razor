@@ -1,6 +1,6 @@
 ﻿@inject NavigationManager nav
 @using Models
-<div class="text-white">
+<div class="text-white bg-dark p-4">
     <h3 class="text-center">@(Project.Name)</h3>
     <p>@(Project.Description)</p>
     <button class="btn btn-primary text-white" @onclick="@(clicked => nav.NavigateTo(Project.ProjectUrl))">See project</button>
