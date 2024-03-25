@@ -1,0 +1,31 @@
+﻿@using RubinPortfolio.Services
+
+<div class="border rounded border-white bg-dark text-white @(ColumnSize)">
+    <h3 class="text-center my-3">Login</h3>
+    <form class="container p-4">
+        <div class="mb-3 col-md-12">
+            <label for="usernameInput" class="form-label">Username:</label>
+            <InputText id="usernameInput" @bind-Value="@username" class="form-control"></InputText>
+        </div>
+        <div class ="mb-3 col-md-12">
+            <label for="passwordInput" class="form-label">Password:</label>
+            <InputText type="password" id="passwordInput" @bind-Value="@password" class="form-control"></InputText>
+        </div>
+        <button @onclick="OnSubmit" type="submit" class="btn btn-primary align-self-center col-md-4">Submit</button>
+    </form>
+</div>
+
+@code {
+    [Parameter]
+    public string ColumnSize { get; set; } = "col-md-12";
+
+    string username = "";
+    string password { get; set; } = "";
+
+    public void OnSubmit()
+    {
+        PasswordHasher hasher = new PasswordHasher();
+        string hashed = hasher.GetHash(password);
+
+    }
+}

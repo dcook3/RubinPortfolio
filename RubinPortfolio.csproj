@@ -23,8 +23,4 @@
     <None Update="..\.dockerignore" Link="buildScripts\.dockerignore" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Services\" />
-  </ItemGroup>
-
 </Project>

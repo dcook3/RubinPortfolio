@@ -2,12 +2,14 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.JSInterop;
 using Microsoft.VisualStudio.Web.BrowserLink;
 using RubinPortfolio.Models;
+using RubinPortfolio.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 var mvcBuilder = builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
+builder.Services.AddSingleton<IPasswordHasher, PasswordHasher>();
 
 // Enable runtime compilation when in development environment
 if (builder.Environment.IsDevelopment())
