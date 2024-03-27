@@ -399,3 +399,6 @@ FodyWeavers.xsd
 
 # I added the following for this project in particular:
 **/buildScripts/*
+
+**/appsettins.json
+/PortfolioDataAPI/appsettings.json
