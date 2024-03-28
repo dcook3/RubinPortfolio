@@ -1,0 +1,34 @@
+[
+  {
+    "ParameterKey": "ServiceName",
+    "ParameterValue": "blazorserverapp"
+  },
+  {
+    "ParameterKey": "ImageUrl",
+    "ParameterValue": "730335196817.dkr.ecr.us-east-1.amazonaws.com/rubin-portfolio"
+  },
+  {
+    "ParameterKey": "ContainerPort",
+    "ParameterValue": "8000"
+  },
+  {
+    "ParameterKey": "DesiredCount",
+    "ParameterValue": "1"
+  },
+  {
+    "ParameterKey": "ListenerRulePriority",
+    "ParameterValue": "1"
+  },
+  {
+    "ParameterKey": "LogGroupName",
+    "ParameterValue": "blazorserverapp-service"
+  },
+  {
+    "ParameterKey": "ASPNETCOREENV",
+    "ParameterValue": "Development"
+  },
+  {
+    "ParameterKey": "HealthCheckURL",
+    "ParameterValue": "/"
+  }
+]

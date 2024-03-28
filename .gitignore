@@ -398,7 +398,5 @@ FodyWeavers.xsd
 *.sln.iml
 
 # I added the following for this project in particular:
-**/buildScripts/*
-
-**/appsettins.json
 /PortfolioDataAPI/appsettings.json
+/PortfolioDataAPI/appsettings.Development.json
