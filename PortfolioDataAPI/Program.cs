@@ -43,10 +43,6 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-else
-{
-    //utilize
-}
 
 app.UseAuthentication();
 app.UseHttpsRedirection();
